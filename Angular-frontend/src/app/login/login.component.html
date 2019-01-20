@@ -1,0 +1,43 @@
+<div class="container" style="text-align:center"> 
+    <img width="700px" alt="VIL Logo" src="VIL Logo2.png">
+  </div>
+  <h2 style="text-align: center">Installed Assets Database Portal VIL</h2>
+  <br>
+  <div>
+  <form  (ngSubmit)= "onLogin(f)" #f="ngForm">
+        <table align="center">
+        <tr>
+          <td>Username</td>
+          <input type="text" name="Username">
+        </tr>
+        <br>
+        <tr>
+          <td>Password</td>
+          <input type="password" name="Password">
+        </tr>
+        <br>
+        <tr>
+          <td>Zone</td>
+          <input list="Zone">
+          <datalist id="Zone" >
+            <option>Kannur</option>
+            <option>Kozhikod</option>
+            <option>Malappuram</option>
+            <option>Thrissur</option>
+            <option>Ernakulam</option>
+            <option>Kottayam</option>
+            <option>Pathanamthitta</option>
+            <option>Thiruvanathapuram</option>
+          </datalist>
+        </tr>
+        <br>
+        <tr>
+          <td></td>
+        <td><button class="btn btn-primary" style= "width: 165px" routerLink="Login">Login</button></td>
+      </tr>
+      </table>
+      
+  
+          
+  </form>
+  </div>
