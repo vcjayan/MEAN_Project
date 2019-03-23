@@ -1,0 +1,70 @@
+
+<h1>Installed Assets - VIL Kerala</h1>
+
+
+
+<table class="table">
+  <tr>
+    <th>RFID</th>
+    <th>Infra_ID</th>
+    <th>Infra_owner</th>
+    <th>Site_name</th>
+    <th>Zone</th>
+    <th>District</th>
+    <th>Tower_type</th>
+    <th>Tower_height</th>
+    <th>Site_type</th>
+    <th>Other_OPCO_count</th>
+    <th>BTS_position_2G</th>
+    <th>BTS_make_2G</th>
+    <th>BTS_BBU_Model_2G</th>
+    <th>BTS_RRU_model_2G</th>
+    <th>RRU_Count2G</th>
+    <th>BTS_ODID_3G</th>
+    <th>BTS_Position_3G</th>
+    <th>BTS_BBU_model_3G</th>
+    <th>BTS_RRU_model_3G</th>
+    <th>RRU_Count_3G</th>
+    <th>Actions</th>
+    </tr>
+
+    <div class="input-group searchGrp pull-right">
+      <input type="text" [(ngModel)]="filtertext" class="form-control" placeholder="search by RFID">
+    </div>
+    
+    <tr *ngFor="let detail of details | myfilter:filtertext">
+      <td> {{ detail.RFID }} </td>
+      <td> {{ detail.Infra_ID }} </td>
+      <td> {{ detail.Infra_owner }} </td>
+      <td> {{ detail.Site_name }} </td>
+      <td> {{ detail.Zone }} </td>
+      <td> {{ detail.District }} </td>
+      <td> {{ detail.Tower_type }} </td>
+      <td> {{ detail.Tower_height }} </td>
+      <td> {{ detail.Site_type }} </td>
+      <td> {{ detail.Other_OPCO_count }} </td>
+      <td> {{ detail.BTS_position_2G }} </td>
+      <td> {{ detail.BTS_make_2G }} </td>
+      <td> {{ detail.BTS_BBU_Model_2G }} </td>
+      <td> {{ detail.BTS_RRU_model_2G }} </td>
+      <td> {{ detail.RRU_Count2G }} </td>
+      <td> {{ detail.BTS_ODID_3G }} </td>
+      <td> {{ detail.BTS_Position_3G }} </td>
+      <td> {{ detail.BTS_BBU_model_3G }} </td>
+      <td> {{ detail.BTS_RRU_model_3G }} </td>
+      <td> {{ detail.RRU_Count_3G }} </td>
+      <td>
+          <button type="button" class="btn btn-primary" (click)="editSite(detail._id)">Edit</button> 
+      </td>
+      <td>
+          <button type="button" class="btn btn-danger" onclick="deleteSite(detail._id)">Delete"</button>
+      </td>
+      
+      
+  </tr>
+
+
+</table>
+
+
+

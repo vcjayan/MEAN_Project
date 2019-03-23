@@ -1,0 +1,15 @@
+.container {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.form {
+    border: 10px;
+    border-color: blueviolet;
+}
+input {
+    padding:2px 2px 2px;
+}
+button {
+    width:100px;
+}
