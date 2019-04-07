@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { VILKerala } from '../assetmodel'
+import { NgForm } from '@angular/forms';
+
 
 
 
@@ -17,6 +20,8 @@ export class SitelistComponent implements OnInit {
 
   ngOnInit() {
     this.getDetails();
+    this.refreshList();
+    
         
   }
   public getDetails(){
@@ -29,4 +34,23 @@ export class SitelistComponent implements OnInit {
   editSite(id){
     this.router.navigate(['/edit', id]);
   }
-}
+
+  deleteSite(id, site){
+    if (confirm ('Are you sure to delete this data ?') == true){
+
+    this.apiService.deleteSite(id, site).subscribe((response)=>{
+      console.log(response);
+      alert ("Deleted successfully")
+      })
+    };
+    
+  
+  }
+  refreshList()  {
+    this.apiService.getDetails().subscribe((data:Array<object>)=>{
+      this.details=data
+    })
+
+  }
+  }   
+

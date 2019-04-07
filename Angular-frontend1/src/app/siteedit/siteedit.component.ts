@@ -5,6 +5,7 @@ import { ApiService } from '../api.service'
 import { Router } from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-siteedit',
   templateUrl: './siteedit.component.html',
@@ -34,7 +35,7 @@ export class SiteeditComponent implements OnInit {
     })
   }
 
-onEdit(form:NgForm) {
+onUpdate(form:NgForm) {
 
   const site: VILKerala={
 
@@ -59,6 +60,15 @@ onEdit(form:NgForm) {
     BTS_RRU_model_3G:form.value.BTS_RRU_model_3G,
     RRU_Count_3G:form.value.RRU_Count_3G
     }
+    
+    this.apiService.updateSite(this.id, site).subscribe((response)=>{
+      console.log(response);
+      alert('Successfully Updated')
+      form.reset()
+    });
+    
+    console.log(JSON.stringify(site));
+    
 
 }
 

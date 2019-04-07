@@ -11,13 +11,15 @@ import { DefaultComponent } from './default/default.component';
 import { MyfilterPipe } from './myfilter.pipe';
 import { PrimaryComponent } from './primary/primary.component';
 
+
+
 const appRoutes:Routes=[
-  { path:'view', component:SitelistComponent},
-  { path:'create', component:SitecreateComponent},
+  { path:'main/view', component:SitelistComponent},
+  { path:'main/create', component:SitecreateComponent},
   { path:'edit', component:SiteeditComponent},
   { path:'edit/:id', component:SiteeditComponent},
-  { path:'', component:DefaultComponent}
-  
+  { path:'', component:DefaultComponent},
+  { path:'main', component:PrimaryComponent}
  
 ]
 
@@ -29,7 +31,8 @@ const appRoutes:Routes=[
     SiteeditComponent,
     DefaultComponent,
     MyfilterPipe,
-    PrimaryComponent
+    PrimaryComponent,
+        
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,6 @@ const appRoutes:Routes=[
     HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent,PrimaryComponent,SitelistComponent]
+  bootstrap: [AppComponent,PrimaryComponent,DefaultComponent, SitelistComponent]
 })
 export class AppModule { }

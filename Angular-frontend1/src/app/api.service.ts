@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http'
 })
 export class ApiService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {  
+   }
 
   getDetails(){
     return this.httpClient.get('http://localhost:3000/database');
@@ -20,11 +21,23 @@ export class ApiService {
     return this.httpClient.post('http://localhost:3000/insertsite', site);
   }
 
-  deleteSite(id){
-    return this.httpClient.get('http://:3000/database/delete/:id', id)
+  deleteSite(id, site){
+    return this.httpClient.delete('http://localhost:3000/database/delete/'+id, site)
   }
 
-  authUser(user){
-    return this.httpClient.post('http://localhost:3000/authenticate', user);
+  User(user){
+    return this.httpClient.post('http://localhost:3000/tokengen', user);
+  }
+
+  updateSite(id, site){
+    return this.httpClient.put('http://localhost:3000/updatesite/'+id, site)
+  }
+
+  registerUser(user){
+    return this.httpClient.post('http://localhost:3000/register', user)
+  }
+
+  loginUser(user){
+    return this.httpClient.post('http://localhost:3000/login', user)
   }
 }

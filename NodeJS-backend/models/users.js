@@ -1,8 +1,9 @@
 var mongoose = require ('mongoose');
-var Users = mongoose.model('users',
+var UserData = mongoose.model('credentials',
 {
     username: {type:String, required:true},
+    email:    {type:String, required:true},
     password: {type:String, required:true}
 })
 
-module.exports={Users}
+module.exports={UserData}

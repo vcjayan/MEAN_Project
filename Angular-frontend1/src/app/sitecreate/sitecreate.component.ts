@@ -68,6 +68,7 @@ export class SitecreateComponent implements OnInit {
     this.apiService.sendSite(site).subscribe((response)=>{
       console.log(response);
       alert('Successfully created')
+      form.reset()
     });
 
     console.log(JSON.stringify(site));

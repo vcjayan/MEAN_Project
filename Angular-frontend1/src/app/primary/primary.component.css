@@ -1,26 +1,27 @@
-.image{
-    height:41em; background-size:cover; width:auto;
-    background-image:url('Tower.jpg');
-    background-position:50%; 
-}
-  .container{
-      display: flex;
-      justify-content: left;
-      align-content: inherit;
-      
-    
 
-      
-      }
-  .container_create{
-      display: flex;
-      padding: 5px;
-    
-      flex-direction: column;
-      margin-top: 150px;
+  body {
+    background-color: orange
   }
   
+  .container{
+      display: flex;
+      justify-content: center;
+      align-content: center;  
+       }
+  .container_create{
+      display: flex;
+      padding: 5px;    
+      flex-direction: column;
+      margin-top: 150px;
+      
+        }  
   .container_view{
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    margin-top: 150px;
+  }
+  .container_upload{
     display: flex;
     padding: 5px;
     flex-direction: column;

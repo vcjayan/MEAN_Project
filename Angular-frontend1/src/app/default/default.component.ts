@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router'
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -11,28 +12,62 @@ import { Router } from '@angular/router'
 export class DefaultComponent implements OnInit {
   username='';
   password='';
+  email=''
 
   constructor(private apiService: ApiService, private router:Router) { }
 
   ngOnInit() {
   }
 
-  onLogin(){
-    const user = {
-      username: this.username,
-      password: this.password,
-    }
-
-    this.apiService.authUser(user).subscribe(data =>{
-      if (!data){
-        alert("Invalid credentials")
-      }
-      else{
-        alert('Logged in');
-        this.router.navigate[('')]
-      }
-    });
-    
-  }
+  displaytoggle(form:NgForm){
   
+    var login=document.getElementById("login");
+   if (login.style.display==='none'){
+       login.style.display='flex'
+   }
+   else{
+       login.style.display='none'
+   }
+   
+   var register=document.getElementById("register");
+   if (register.style.display==='none'){
+       register.style.display='flex'
+   }
+   else{
+       register.style.display='none'
+   }
+   form.reset();
 }
+
+  onLogin(form:NgForm){
+
+    const user = {
+      username: form.value.username,
+      email: form.value.email,
+      password: form.value.password
+    }
+    
+    this.apiService.loginUser(user).subscribe((response)=>{
+      console.log(response);
+                 
+      form.reset();
+      this.router.navigate(['/main']);
+    })
+  }
+
+  onRegister(form:NgForm){
+    
+    const user = {
+      username: form.value.username,
+      email: form.value.email,
+      password: form.value.password
+    }
+    this.apiService.registerUser(user).subscribe((response =>{
+      console.log(response);
+        alert('Succeffully registered');
+        form.reset();
+        this.router.navigate[('/main')]
+      }));
+      
+      
+  }}
