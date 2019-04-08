@@ -10,34 +10,30 @@ export class ApiService {
    }
 
   getDetails(){
-    return this.httpClient.get('http://localhost:3000/database');
+    return this.httpClient.get('database');
   }
 
   getSitebyId(id){
-    return this.httpClient.get('http://localhost:3000/database/'+id);
+    return this.httpClient.get('database/'+id);
   }
 
   sendSite(site){
-    return this.httpClient.post('http://localhost:3000/insertsite', site);
+    return this.httpClient.post('insertsite', site);
   }
 
   deleteSite(id, site){
-    return this.httpClient.delete('http://localhost:3000/database/delete/'+id, site)
-  }
-
-  User(user){
-    return this.httpClient.post('http://localhost:3000/tokengen', user);
+    return this.httpClient.delete('database/delete/'+id, site)
   }
 
   updateSite(id, site){
-    return this.httpClient.put('http://localhost:3000/updatesite/'+id, site)
+    return this.httpClient.put('updatesite/'+id, site)
   }
 
   registerUser(user){
-    return this.httpClient.post('http://localhost:3000/register', user)
+    return this.httpClient.post('register', user)
   }
 
   loginUser(user){
-    return this.httpClient.post('http://localhost:3000/login', user)
+    return this.httpClient.post('login', user)
   }
 }
