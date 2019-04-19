@@ -1,0 +1,66 @@
+<div class="container">        
+  <div class="container_login" id="login"  >
+  <img class="image" src="VIL.jpg">
+      <form (ngSubmit)="onLogin(userForm)" #userForm="ngForm">
+
+          <h1 class="prompt">Login</h1>
+          <br>
+          <div [class.has-error]="usernameControl.invalid && usernameControl.touched">
+          <input class="form-control" type="text" placeholder="Enter username" name="username" required [(ngModel)]="username" 
+          #usernameControl="ngModel">
+          <span class="help-block" *ngIf="usernameControl.invalid && usernameControl.touched">
+              User name is required
+          </span>
+        </div>
+          <br>
+          <div [class.has-error]="emailControl.invalid && emailControl.touched">
+          <input class="form-control" type="email" placeholder="Enter email" name="email" required [(ngModel)]="email"
+          #emailControl="ngModel">
+          <span class="help-block" *ngIf="emailControl.invalid && emailControl.touched">
+            Email is required
+        </span>
+        <br>
+        </div>     
+           <input class="form-control" type="password" placeholder="Enter password" name="password" required [(ngModel)]="password">
+            <br>         
+          <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid" >Login</button>
+          <br>
+          <br>
+          <p class="message">Not registered?<a href="#" (click)="displaytoggle()"class="text">Register</a></p> 
+      </form>
+   </div>
+
+
+   <div class="container_register" id="register" style="display: none">
+    <img  class="image" src="VIL.jpg"> 
+    <form (ngSubmit)="onRegister(userForm)" #userForm="ngForm" >
+
+        <h1 class="prompt">Register</h1>
+        <div [class.has-error]="usernameControl.invalid && usernameControl.touched">
+        <input class="form-control" type="text" placeholder="Enter username" name="username" required [(ngModel)]="username"
+        #usernameControl="ngModel">
+        <span class="help-block" *ngIf="usernameControl.invalid && usernameControl.touched">
+            User name is required
+        </span>
+    </div>
+        <br>
+        <div [class.has-error]="emailControl.invalid && emailControl.touched">
+        <input class="form-control" type="email" placeholder="Enter email" name="email" required [(ngModel)]="email"
+        #emailControl="ngModel">
+        <span class="help-block" *ngIf="emailControl.invalid && emailControl.touched">
+            Email is required
+        </span>
+    </div>
+        <br>
+        
+        <input class="form-control" type="password" placeholder="Password" name="password" 
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase 
+        and lowercase letter, and at least 8 or more characters" required [(ngModel)]="password" > 
+        
+          
+        <br>
+                
+        <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid" >Create Account</button> 
+        <p class="message">Already registered?<a href="#" (click)="displaytoggle()"class="text">Login</a></p> 
+    </form>
+   </div>

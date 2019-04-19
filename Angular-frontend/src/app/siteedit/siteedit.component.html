@@ -1,0 +1,105 @@
+
+  <h1 style="text-align: center">Edit site details</h1>
+  <div> 
+  <form class="form-group" (ngSubmit)="onUpdate(f)" #f="ngForm">
+          
+  <table class="table">
+    <tr>
+
+      <td>RFID</td>
+      <td><input type="text" name="RFID" [(ngModel)]=details.RFID ></td>
+      <td>Infra_ID</td>
+      <td><input type="text" name="Infra_ID" [(ngModel)]=details.Infra_ID></td>
+      <td>Infra_owner</td>
+      <td><input type="text" name="Infra_owner" [(ngModel)]=details.Infra_owner></td>          
+    </tr>
+    <tr>            
+        <td>Site_name</td>
+        <td><input type="text" name="Site_name" [(ngModel)]=details.Site_name></td>
+        <td>Zone</td>
+        <td><input type="text" name="Zone" [(ngModel)]=details.Zone></td>
+        <td>District</td>
+        <td><input type="text" name="District" [(ngModel)]=details.District></td>
+        
+      </tr>
+      <tr>
+          <td>Tower_type</td>
+          <td><input list="Towertype" name="Tower_type" [(ngModel)]=details.Tower_type></td>
+          <datalist id="Towertype">
+            <option>RTT</option>
+            <option>GBT</option>
+            <option>Pole</option>
+            <option>IBS</option>
+          </datalist>
+          <td>Tower_height</td>
+          <td><input type="text" name="Tower_height" [(ngModel)]=details.Tower_height></td>
+          <td>Site_type</td>
+          <td><input list="Sitetype" name="Site_type" [(ngModel)]=details.RFID></td>
+          <datalist id="Sitetype">
+            <option>Indoor</option>
+            <option>Outdoor</option>
+          </datalist>
+          
+        </tr>
+        <tr>
+            <td>Other_OPCO_count</td>
+            <td><input type="text" name="Other_OPCO_count" [(ngModel)]=details.Other_OPCO_count></td>
+            <td>BTS_position_2G</td>
+            <td><input list="2Gposition" name="BTS_position_2G" [(ngModel)]=details.BTS_position_2G></td>
+            <datalist id="2Gposition">
+              <option>Rack</option>
+              <option>Floor</option>
+              <option>Stack</option>
+            </datalist>
+            <td>BTS_make_2G</td>
+  
+            <td><input list="2Gmake" name="BTS_make_2G" [(ngModel)]=details.BTS_make_2G></td>
+            <datalist id="2Gmake">
+              <option>MR8</option>
+              <option>MR10</option>
+              <option>Siemens</option>
+            </datalist>
+            
+          </tr>
+          <tr>
+              <td> BTS_BBU_Model_2G</td>
+              <td><input list="2Gbbu" name="BTS_BBU_Model_2G" [(ngModel)]=details.BTS_BBU_Model_2G></td>
+              <datalist id="2Gbbu">
+                <option>FSMF</option>
+                <option>ESMB</option>
+                <option>NA</option>
+              </datalist>
+              <td>BTS_RRU_model_2G</td>
+              <td><input type="text" name="BTS_RRU_model_2G" [(ngModel)]=details.BTS_RRU_model_2G></td>
+              <td> RRU_Count2G</td>
+              <td><input type="text" name="RRU_Count2G" [(ngModel)]=details.RRU_Count2G></td>
+              
+            </tr>
+  
+            <tr>
+                <td>BTS_ODID_3G</td>
+                <td><input type="text" name="BTS_ODID_3G" [(ngModel)]=details.BTS_ODID_3G></td>
+                <td> BTS_Position_3G</td>
+                <td><input type="text" name="BTS_Position_3G" [(ngModel)]=details.BTS_Position_3G></td>
+                <td>BTS_BBU_model_3G</td>
+                <td><input type="text" name="BTS_BBU_model_3G" [(ngModel)]=details.BTS_BBU_model_3G></td>
+                
+            </tr>
+            <tr>
+                <td> BTS_RRU_model_3G</td>
+                <td><input type="text" name="BTS_RRU_model_3G" [(ngModel)]=details.BTS_RRU_model_3G></td>
+                <td> RRU_Count_3G</td>
+                <td><input type="text" name="RRU_Count_3G" [(ngModel)]=details.RRU_Count_3G></td>
+            </tr>
+                        
+      </table>
+      <button class="btn btn-primary">Update</button>    
+    </form>
+         
+  </div>
+         
+      
+    
+    
+  
+

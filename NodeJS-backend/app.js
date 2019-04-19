@@ -62,12 +62,6 @@ app.post('/login', (req, res)=>{
 
 })
 
-app.get('/credentials', (req, res)=>{
-    UserData.find().then((data)=>{
-    res.send(data)
-})
-});
-
 app.get('/database', (req, res)=>{
         VILKerala.find().then((data)=>{
         if(!data){
@@ -177,7 +171,7 @@ app.post('/insertsite', (req, res)=>{
 
 });
 
-app.listen(process.env.PORT || 8080, ()=> {
+app.listen(3000, ()=> {
     console.log("Server started")
 })
 
