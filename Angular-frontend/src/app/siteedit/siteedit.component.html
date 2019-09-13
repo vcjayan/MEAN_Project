@@ -2,97 +2,215 @@
   <h1 style="text-align: center">Edit site details</h1>
   <div> 
   <form class="form-group" (ngSubmit)="onUpdate(f)" #f="ngForm">
-          
-  <table class="table">
-    <tr>
-
-      <td>RFID</td>
-      <td><input type="text" name="RFID" [(ngModel)]=details.RFID ></td>
-      <td>Infra_ID</td>
-      <td><input type="text" name="Infra_ID" [(ngModel)]=details.Infra_ID></td>
-      <td>Infra_owner</td>
-      <td><input type="text" name="Infra_owner" [(ngModel)]=details.Infra_owner></td>          
-    </tr>
-    <tr>            
-        <td>Site_name</td>
-        <td><input type="text" name="Site_name" [(ngModel)]=details.Site_name></td>
-        <td>Zone</td>
-        <td><input type="text" name="Zone" [(ngModel)]=details.Zone></td>
-        <td>District</td>
-        <td><input type="text" name="District" [(ngModel)]=details.District></td>
-        
-      </tr>
-      <tr>
-          <td>Tower_type</td>
-          <td><input list="Towertype" name="Tower_type" [(ngModel)]=details.Tower_type></td>
-          <datalist id="Towertype">
-            <option>RTT</option>
-            <option>GBT</option>
-            <option>Pole</option>
-            <option>IBS</option>
-          </datalist>
-          <td>Tower_height</td>
-          <td><input type="text" name="Tower_height" [(ngModel)]=details.Tower_height></td>
-          <td>Site_type</td>
-          <td><input list="Sitetype" name="Site_type" [(ngModel)]=details.RFID></td>
-          <datalist id="Sitetype">
-            <option>Indoor</option>
-            <option>Outdoor</option>
-          </datalist>
-          
-        </tr>
-        <tr>
-            <td>Other_OPCO_count</td>
-            <td><input type="text" name="Other_OPCO_count" [(ngModel)]=details.Other_OPCO_count></td>
-            <td>BTS_position_2G</td>
-            <td><input list="2Gposition" name="BTS_position_2G" [(ngModel)]=details.BTS_position_2G></td>
-            <datalist id="2Gposition">
-              <option>Rack</option>
-              <option>Floor</option>
-              <option>Stack</option>
-            </datalist>
-            <td>BTS_make_2G</td>
-  
-            <td><input list="2Gmake" name="BTS_make_2G" [(ngModel)]=details.BTS_make_2G></td>
-            <datalist id="2Gmake">
-              <option>MR8</option>
-              <option>MR10</option>
-              <option>Siemens</option>
-            </datalist>
-            
-          </tr>
+      <table class="table">
           <tr>
-              <td> BTS_BBU_Model_2G</td>
-              <td><input list="2Gbbu" name="BTS_BBU_Model_2G" [(ngModel)]=details.BTS_BBU_Model_2G></td>
-              <datalist id="2Gbbu">
-                <option>FSMF</option>
-                <option>ESMB</option>
-                <option>NA</option>
-              </datalist>
-              <td>BTS_RRU_model_2G</td>
-              <td><input type="text" name="BTS_RRU_model_2G" [(ngModel)]=details.BTS_RRU_model_2G></td>
-              <td> RRU_Count2G</td>
-              <td><input type="text" name="RRU_Count2G" [(ngModel)]=details.RRU_Count2G></td>
-              
+            <td>RFID</td>
+            <td><input type="text" name="RFID" [(ngModel)]=details.RFID></td>
+            <td>Infra ID</td>
+            <td><input type="text" name="InfraID" [(ngModel)]=details.InfraID></td>
+            <td>Infra owner</td>
+            <td ><select id="InfraOwner" name="InfraOwner" [(ngModel)]=details.InfraOwner>
+                <option></option>
+                <option>Indus</option>
+                <option>ATC</option>
+                <option>TVIPL</option>
+                <option>ATIPL</option>
+              </select></td>          
+          </tr>
+          <tr>            
+              <td>Site name</td>
+              <td><input type="text" name="SiteName" [(ngModel)]=details.SiteName></td>
+              <td>Zone</td>
+              <td ><select id="Zone" name="Zone" [(ngModel)]=details.Zone>
+                  <option></option>
+                  <option>Kannur</option>
+                  <option>Calicut</option>
+                  <option>Malappuram</option>
+                  <option>Thrissur</option>
+                </select></td>   
+              <td>District</td>
+              <td ><select id="District" name="District" [(ngModel)]=details.District>
+                  <option></option>
+                  <option>Kannur</option>
+                  <option>Calicut</option>
+                  <option>Malappuram</option>
+                  <option>Thrissur</option>
+                </select></td>        
             </tr>
-  
             <tr>
-                <td>BTS_ODID_3G</td>
-                <td><input type="text" name="BTS_ODID_3G" [(ngModel)]=details.BTS_ODID_3G></td>
-                <td> BTS_Position_3G</td>
-                <td><input type="text" name="BTS_Position_3G" [(ngModel)]=details.BTS_Position_3G></td>
-                <td>BTS_BBU_model_3G</td>
-                <td><input type="text" name="BTS_BBU_model_3G" [(ngModel)]=details.BTS_BBU_model_3G></td>
-                
-            </tr>
-            <tr>
-                <td> BTS_RRU_model_3G</td>
-                <td><input type="text" name="BTS_RRU_model_3G" [(ngModel)]=details.BTS_RRU_model_3G></td>
-                <td> RRU_Count_3G</td>
-                <td><input type="text" name="RRU_Count_3G" [(ngModel)]=details.RRU_Count_3G></td>
-            </tr>
+                <td>Tower type</td>        
+                <td ><select id="TowerType" name="TowerType" [(ngModel)]=details.TowerType>
+                  <option></option>
+                  <option>RTT</option>
+                  <option>GBT</option>
+                  <option>Pole</option>
+                  <option>IBS</option>
+                </select></td>
+                <td>Tower Height</td>
+                <td><input type="number" name="TowerHeight" [(ngModel)]=details.TowerHeight></td>
+                <td>Site type</td>
+                <td ><select id="SiteType" name="SiteType" [(ngModel)]=details.SiteType>
+                    <option></option>
+                    <option>Indoor</option>
+                    <option>Outdoor</option>
+                  </select></td>                
+              </tr>
+              <tr>
+                  <td>Other OPCO count</td>
+                  <td><input type="number" name="OtherOPCOCount" [(ngModel)]=details.OtherOPCOCount></td>
+                  <td>BBU Location</td>
+                  <td ><select id="BBULocation" name="BBULocation" [(ngModel)]=details.BBULocation>
+                      <option></option>
+                      <option>Indoor</option>
+                      <option>Outdoor</option>
+                      </select></td>
+                  <td>BBU Position</td>
+                  <td ><select id="BBUPosition" name="BBUPosition" [(ngModel)]=details.BBUPosition>
+                      <option></option>
+                      <option>Rack</option>
+                      <option>Floor</option>
+                      </select></td>
+              </tr>
+              <tr>
+                  <td>RRU Count 2G</td>
+                  <td><input type="number" name="RRUCount2G" [(ngModel)]=details.RRUCount2G></td>
+                  <td>RRU Count 3G4G</td>
+                  <td><input type="number" name="RRUCount3G4G" [(ngModel)]=details.RRUCount3G4G></td>
+                  <td>TDD RRU Count</td>            
+                  <td><input type="number" name="TDDRRUCount" [(ngModel)]=details.TDDRRUCount></td>
+              </tr>
+              <tr>    
+                  <td> MIMO RRU Count</td>
+                  <td><input type="number" name="MIMORRUCount" [(ngModel)]=details.MIMORRUCount></td>        
+                  <td>Total RRU Count</td>
+                  <td><input type="number" name="TotalRRUCount" [(ngModel)]=details.TotalRRUCount></td>
+                  <td> Antenna Count 2Port</td>
+                  <td><input type="number" name="AntennaCount2Port" [(ngModel)]=details.AntennaCount2Port></td>
+              </tr>
+              <tr>
+                  <td>Antenna Count 4Port</td>
+                  <td><input type="number" name="AntennaCount4Port" [(ngModel)]=details.AntennaCount4Port></td>
+                  <td> Antenna Count 6Port</td>
+                  <td><input type="number" name="AntennaCount6Port" [(ngModel)]=details.AntennaCount6Port></td>
+                  <td> Antenna Count 8Port</td>
+                  <td><input type="number" name="AntennaCount8Port" [(ngModel)]=details.AntennaCount8Port></td>
+              </tr>        
+              <tr>
+                  <td> Antenna Count 10Port</td>
+                  <td><input type="number" name="AntennaCount10Port" [(ngModel)]=details.AntennaCount10Port></td>
+                  <td>MW Make</td>
+                  <td ><select id="MWMake" name="MWMake" [(ngModel)]=details.MWMake>
+                    <option></option>
+                    <option>NEC</option>
+                    <option>Huawei</option>
+                    </select></td>
+                  <td> MW Model</td>
+                  <td ><select id="MWModel" name="MWModel" [(ngModel)]=details.MWModel>
+                    <option></option>
+                    <option>iPaso 200</option>
+                    <option>iPaso 400</option>
+                    <option>iPaso 1000</option>
+                    <option>Huawei1</option>
+                    <option>Huawei2</option>
+                    <option>Huawei3</option>
+                    </select></td>       
+                               
+                  </tr>
+                  <tr>
+                    <td>MW Location</td>
+                    <td ><select id="BBULocation" name="MWLocation" [(ngModel)]=details.MWLocation>
+                        <option></option>
+                        <option>Indoor</option>
+                        <option>Outdoor</option>
+                        </select></td>
+                    <td> MW Position</td>
+                    <td ><select id="MWPosition" name="MWPosition" [(ngModel)]=details.MWPosition>
+                        <option></option>
+                        <option>Rack</option>
+                        <option>Floor</option>
+                        </select></td>
+                    <td> MW Count</td>
+                    <td><input type="number" name="MWCount" [(ngModel)]=details.MWCount></td>
+                  </tr>
+                  <tr>
+                      <td> ILL Dependnecy</td>
+                      <td ><select id="ILLDependnecy" name="ILLDependnecy" [(ngModel)]=details.ILLDependnecy>
+                          <option></option>
+                          <option>Yes</option>
+                          <option>No</option>
+                          </select></td> 
+                          <td> Antenna Count 0.3</td>
+                    <td><input type="text" name="AntennaCountPoint3" [(ngModel)]=details.AntennaCountPoint3></td>  
+                    <td> Antenna Directions 0.3 </td>
+                    <td><input type="text" name="AntennaDirectionsPoint3" [(ngModel)]=details.AntennaDirectionsPoint3></td>
+
+                  </tr>
+                  <tr>                        
+                    <td> Antenna Count 0.6</td>
+                       <td><input type="number" name="AntennaCountPoint6" [(ngModel)]=details.AntennaCountPoint6></td>
+                        <td> Antenna Directions 0.6</td>
+                        <td><input type="text" name="AntennaDirectionsPoint6" [(ngModel)]=details.AntennaDirectionsPoint6></td> 
+                        <td> Antenna Count 0.9  </td>
+                        <td><input type="number" name="AntennaCountPoint9" [(ngModel)]=details.AntennaCountPoint9></td>
+                  </tr>
+                  <tr>
                         
-      </table>
+                        <td> Antenna Directions 0.9</td>
+                        <td><input type="text" name="AntennaDirectionsPoint9" [(ngModel)]=details.AntennaDirectionsPoint9></td>
+                        <td> Antenna Count 1.2</td>
+                        <td><input type="number" name="AntennaCount1Point2" [(ngModel)]=details.AntennaCount1Point2></td> 
+                        <td> Antenna Directions 1.2  </td>
+                        <td><input type="text" name="AntennaDirections1Point2" [(ngModel)]=details.AntennaDirections1Point2></td>
+                  </tr>
+                  <tr>
+                        
+                        <td> Antenna Count 1.8</td>
+                        <td><input type="number" name="AntennaCount1Point8" [(ngModel)]=details.AntennaCount1Point8></td>
+                        <td> Antenna Directions 1.8</td>
+                        <td><input type="text" name="AntennaDirections1Point8" [(ngModel)]=details.AntennaDirections1Point8></td>
+                        <td> MUX Make  </td>
+                        <td ><select id="MUXMake" name="MUXMake" [(ngModel)]=details.MUXMake>
+                            <option></option>
+                            <option>Huawei</option>
+                            <option>Fibom</option>
+                            <option>Thejas</option>
+                            </select></td>
+                  </tr>
+                  <tr>
+                        
+                       <td> MUX Model  </td>
+                       <td ><select id="MUXModel" name="MUXModel" [(ngModel)]=details.MUXModel>
+                            <option></option>
+                            <option>Optix 3500</option>
+                            <option>Optix 1500</option>
+                            <option>Optix 7500</option>
+                            <option>Fib 1.1</option>
+                            <option>Thej 2</option>
+                            </select></td>
+                            <td> MUX Location</td>
+                  <td ><select id="MUXLocation" name="MUXLocation" [(ngModel)]=details.MUXLocation>
+                      <option></option>
+                      <option>Indoor</option>
+                      <option>Outdoor</option>
+                      </select></td>
+                      <td> MUX Position</td>
+                      <td ><select id="MUXPosition" name="MUXPosition" [(ngModel)]=details.MUXPosition>
+                          <option></option>
+                          <option>Rack</option>
+                          <option>TCU</option>
+                          <option>MCU</option>
+                          </select></td>
+                  </tr>
+                  <tr>
+                  
+                      <td>MUX Count</td>
+                      <td><input type="number" name="MUXCount" [(ngModel)]=details.MUXCount></td>
+
+                        </tr>               
+                      
+                  
+                </table> 
+  
       <button class="btn btn-primary">Update</button>    
     </form>
          

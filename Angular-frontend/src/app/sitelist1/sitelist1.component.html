@@ -1,0 +1,250 @@
+<nav class="navbar navbar-expand-lg ">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/main">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Contact us</a>
+        </li>
+      </ul>
+    </div>
+    <h6>{{ time }}</h6>
+  </nav>
+
+<div>
+<mat-card class="tp-card">
+  <button (click)="exportAsXLSX()" class="btn btn-success">Export to Excel</button>
+  
+
+<br>
+
+<div>          
+    <mat-form-field floatLabel="never">
+      <input matInput [(ngModel)]="searchKey" autocomplete="off" (keyup)="applyFilter($event.target.value)" placeholder="Search">
+      <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+      <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>                       
+</div>
+            
+    <table mat-table [dataSource]="VILKerala" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="RFID">
+        <th mat-header-cell *matHeaderCellDef>RFID</th>
+        <td mat-cell *matCellDef="let element ">{{element.RFID}}</td>        
+      </ng-container>
+        
+      <ng-container matColumnDef="InfraID">
+        <th mat-header-cell *matHeaderCellDef>Infra ID</th>
+        <td mat-cell *matCellDef="let element">{{element.InfraID}}</td>          
+      </ng-container>
+          
+      <ng-container matColumnDef="InfraOwner">
+        <th mat-header-cell *matHeaderCellDef>Infra owner</th>
+        <td mat-cell *matCellDef="let element">{{element.InfraOwner}}</td>            
+      </ng-container>
+          
+      <ng-container matColumnDef="SiteName">
+        <th mat-header-cell *matHeaderCellDef>Site name</th>
+        <td mat-cell *matCellDef="let element">{{element.SiteName}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="Zone">
+        <th mat-header-cell *matHeaderCellDef>Zone</th>
+        <td mat-cell *matCellDef="let element">{{element.Zone}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="District">
+        <th mat-header-cell *matHeaderCellDef>District</th>
+        <td mat-cell *matCellDef="let element">{{element.District}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="TowerType">
+        <th mat-header-cell *matHeaderCellDef>Tower type</th>
+        <td mat-cell *matCellDef="let element">{{element.TowerType}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="TowerHeight">
+        <th mat-header-cell *matHeaderCellDef>Tower height</th>
+        <td mat-cell *matCellDef="let element">{{element.TowerHeight}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="SiteType">
+        <th mat-header-cell *matHeaderCellDef>Site type</th>
+        <td mat-cell *matCellDef="let element">{{element.SiteType}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="OtherOPCOCount">
+        <th mat-header-cell *matHeaderCellDef>Other OPCO count</th>
+        <td mat-cell *matCellDef="let element">{{element.OtherOPCOCount}}</td>            
+      </ng-container>
+
+      <ng-container matColumnDef="BBULocation">
+        <th mat-header-cell *matHeaderCellDef>BBU ID/OD</th>
+        <td mat-cell *matCellDef="let element">{{element.BBULocation}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="BBUPosition">
+        <th mat-header-cell *matHeaderCellDef>BBU Position</th>
+        <td mat-cell *matCellDef="let element">{{element.BBUPosition}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="RRUCount2G">
+        <th mat-header-cell *matHeaderCellDef>RRU Count 2G</th>
+        <td mat-cell *matCellDef="let element">{{element.RRUCount2G}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="RRUCount3G4G">
+        <th mat-header-cell *matHeaderCellDef>RRU Count 3G4G</th>
+        <td mat-cell *matCellDef="let element">{{element.RRUCount3G4G}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="TDDRRUCount">
+        <th mat-header-cell *matHeaderCellDef>TDD RRU Count</th>
+        <td mat-cell *matCellDef="let element">{{element.TDDRRUCount}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="MIMORRUCount">
+        <th mat-header-cell *matHeaderCellDef>MIMO RRU Count</th>
+        <td mat-cell *matCellDef="let element">{{element.MIMORRUCount}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="TotalRRUCount">
+        <th mat-header-cell *matHeaderCellDef>Total RRU Count</th>
+        <td mat-cell *matCellDef="let element">{{element.RRUCount2G+element.RRUCount3G4G+element.TDDRRUCount+element.MIMORRUCount}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="AntennaCount2Port">
+        <th mat-header-cell *matHeaderCellDef>Antenna Count 2 Port</th>
+        <td mat-cell *matCellDef="let element">{{element.AntennaCount2Port}}</td>            
+      </ng-container>
+       
+      <ng-container matColumnDef="AntennaCount4Port">
+        <th mat-header-cell *matHeaderCellDef>Antenna Count 4 Port</th>
+        <td mat-cell *matCellDef="let element">{{element.AntennaCount4Port}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="AntennaCount6Port">
+        <th mat-header-cell *matHeaderCellDef>Antenna Count 6 Port</th>
+        <td mat-cell *matCellDef="let element">{{element.AntennaCount6Port}}</td>            
+      </ng-container>
+        
+      <ng-container matColumnDef="AntennaCount8Port">
+        <th mat-header-cell *matHeaderCellDef>Antenna Count 8 Port</th>
+        <td mat-cell *matCellDef="let element">{{element.AntennaCount8Port}}</td>            
+      </ng-container> 
+      <ng-container matColumnDef="AntennaCount10Port">
+          <th mat-header-cell *matHeaderCellDef>Antenna Count 10 Port</th>
+          <td mat-cell *matCellDef="let element">{{element.AntennaCount10Port}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="MWMake">
+          <th mat-header-cell *matHeaderCellDef>MW Make</th>
+          <td mat-cell *matCellDef="let element">{{element.MWMake}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="MWModel">
+          <th mat-header-cell *matHeaderCellDef>MW Model</th>
+          <td mat-cell *matCellDef="let element">{{element.MWModel}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="MWLocation">
+        <th mat-header-cell *matHeaderCellDef>MW ID/OD</th>
+        <td mat-cell *matCellDef="let element">{{element.MWLocation}}</td>            
+    </ng-container>
+      <ng-container matColumnDef="MWPosition">
+          <th mat-header-cell *matHeaderCellDef>MW Position</th>
+          <td mat-cell *matCellDef="let element">{{element.MWPosition}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="MWCount">
+          <th mat-header-cell *matHeaderCellDef>MW Count</th>
+          <td mat-cell *matCellDef="let element">{{element.MWCount}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="ILLDependnecy">
+          <th mat-header-cell *matHeaderCellDef>ILL Dependnecy</th>
+          <td mat-cell *matCellDef="let element">{{element.ILLDependnecy}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="AntennaCountPoint3">
+          <th mat-header-cell *matHeaderCellDef>Antenna Count .3</th>
+          <td mat-cell *matCellDef="let element">{{element.AntennaCountPoint3}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="AntennaDirectionsPoint3">
+          <th mat-header-cell *matHeaderCellDef>Antenna Directions .3</th>
+          <td mat-cell *matCellDef="let element">{{element.AntennaDirectionsPoint3}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="AntennaCountPoint6">
+          <th mat-header-cell *matHeaderCellDef>Antenna Count .6</th>
+          <td mat-cell *matCellDef="let element">{{element.AntennaCountPoint6}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="AntennaDirectionsPoint6">
+          <th mat-header-cell *matHeaderCellDef>Antenna Directions .6</th>
+          <td mat-cell *matCellDef="let element">{{element.AntennaDirectionsPoint6}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="AntennaCountPoint9">
+          <th mat-header-cell *matHeaderCellDef>Antenna Count .9</th>
+          <td mat-cell *matCellDef="let element">{{element.AntennaCountPoint9}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="AntennaDirectionsPoint9">
+          <th mat-header-cell *matHeaderCellDef>Antenna Directions .9</th>
+          <td mat-cell *matCellDef="let element">{{element.AntennaDirectionsPoint9}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="AntennaCount1Point2">
+          <th mat-header-cell *matHeaderCellDef>Antenna Count 1.2</th>
+          <td mat-cell *matCellDef="let element">{{element.AntennaCount1Point2}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="AntennaDirections1Point2">
+          <th mat-header-cell *matHeaderCellDef>Antenna Directions 1.2</th>
+          <td mat-cell *matCellDef="let element">{{element.AntennaDirections1Point2}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="AntennaCount1Point8">
+          <th mat-header-cell *matHeaderCellDef>Antenna Count 1.8</th>
+          <td mat-cell *matCellDef="let element">{{element.AntennaCount1Point8  }}</td>            
+      </ng-container>
+      <ng-container matColumnDef="AntennaDirections1Point8">
+          <th mat-header-cell *matHeaderCellDef>Antenna Directions1 1.8</th>
+          <td mat-cell *matCellDef="let element">{{element.AntennaDirections1Point8}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="MUXMake">
+          <th mat-header-cell *matHeaderCellDef>MUX Make</th>
+          <td mat-cell *matCellDef="let element">{{element.MUXMake}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="MUXModel">
+        <th mat-header-cell *matHeaderCellDef>MUX Model</th>
+        <td mat-cell *matCellDef="let element">{{element.MUXModel}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="MUXLocation">
+      <th mat-header-cell *matHeaderCellDef>MUX ID/OD</th>
+      <td mat-cell *matCellDef="let element">{{element.MUXLocation}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="MUXPosition">
+          <th mat-header-cell *matHeaderCellDef>MUX Position</th>
+          <td mat-cell *matCellDef="let element">{{element.MUXPosition}}</td>            
+      </ng-container>
+      <ng-container matColumnDef="MUXCount">
+          <th mat-header-cell *matHeaderCellDef>MUX Count</th>
+          <td mat-cell *matCellDef="let element">{{element.MUXCount}}</td>            
+      </ng-container>
+
+      <ng-container matColumnDef="LastUpdate">
+          <th mat-header-cell *matHeaderCellDef>Last Updated</th>
+          <td mat-cell *matCellDef="let element">{{element.LastUpdate}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef class="mat-column-right" >Actions</th>
+        <td mat-cell *matCellDef="let element" class="mat-column-right">
+            <button mat-icon-button color="primary" (click)="editSite(element._id)"><mat-icon>edit_outline</mat-icon></button>
+            <button mat-icon-button color="warn" (click)="deleteSite(element._id)"><mat-icon>delete_outline</mat-icon></button>
+        </td>
+      </ng-container> 
+       
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns  " ></tr>
+        <tr mat-row *matRowDef="let myRowData columns: displayedColumns" ></tr>   
+
+    </table>
+<mat-paginator showFirstLastButtons></mat-paginator>
+</mat-card>
+
+</div>  

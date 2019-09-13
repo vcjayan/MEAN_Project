@@ -1,13 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import * as moment from 'moment'
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ApiService {
 
   constructor(private httpClient: HttpClient) {  
    }
+
+   getZone(){
+    return this.httpClient.get('http://localhost:3000/zone');
+  }
+
+  getDistrict(Districts_zoneid){
+    return this.httpClient.get('http://localhost:3000/district/'+Districts_zoneid);
+  }
 
    getDetails(){
     return this.httpClient.get('http://localhost:3000/database');
@@ -31,7 +41,7 @@ export class ApiService {
 
   updateSite(id, site){
     return this.httpClient.put('http://localhost:3000/updatesite/'+id, site)
-  }
+  };
 
   registerUser(user){
     return this.httpClient.post('http://localhost:3000/register', user)

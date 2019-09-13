@@ -1,0 +1,36 @@
+table {
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  th {
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+  }
+
+  .tp-card {
+    width: fit-content
+ }
+
+ .mat-column-right {
+   text-align: initial;
+
+ }
+ h6{
+  color: green;
+  text-align: end;
+}
+.nav-link{
+  color: brown;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.mat-header-cell {
+  color: brown
+}
+
+
+

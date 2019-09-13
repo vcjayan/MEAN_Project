@@ -1,4 +1,27 @@
 table td {
     
     padding: 4px 4px;
+   
 }
+h1{
+    color: darkcyan;
+    text-align: center;
+    font-size: 3em;
+    font-family: fantasy;
+      
+    }
+
+
+select {
+    padding: 4px 4px;
+    width: 181px
+}
+h6{
+    color: green;
+    text-align: end;
+  }
+.nav-link{
+    color: brown;
+    font-family: Arial, Helvetica, sans-serif
+}
+

@@ -1,6 +1,6 @@
-<br>
+
 <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg ">
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
@@ -14,106 +14,227 @@
             </li>
           </ul>
         </div>
+        <h6>{{ time }}</h6>
       </nav>
+      
+<h1 style="text-align: center">New site addition (All fields mandatory)</h1>
 <br>
-<h1 style="text-align: center">New site creation</h1>
+<div>
 
 <form class="form-inline" (ngSubmit)="onSubmit(f)" #f="ngForm">
-    
+    <br>
+    <br>
 <table class="table">
   <tr>
     <td>RFID</td>
     <td><input type="text" name="RFID" ngModel required></td>
-    <td>Infra_ID</td>
-    <td><input type="text" name="Infra_ID" ngModel></td>
-    <td>Infra_owner</td>
-    <td><input type="text" name="Infra_owner" ngModel></td>          
+    <td>Infra ID</td>
+    <td><input type="text" name="InfraID" ngModel></td>
+    <td>Infra owner</td>
+    <td ><select id="InfraOwner" name="InfraOwner" ngModel >
+        <option></option>
+        <option>Indus</option>
+        <option>ATC</option>
+        <option>TVIPL</option>
+        <option>ATIPL</option>
+      </select></td>          
   </tr>
   <tr>            
-      <td>Site_name</td>
-      <td><input type="text" name="Site_name" ngModel></td>
+      <td>Site name</td>
+      <td><input type="text" name="SiteName" ngModel></td>
       <td>Zone</td>
-      <td><input type="text" name="Zone" ngModel></td>
+      <td ><select id="Zone" name="Zone" ngModel width="300px" (change)="onChangezone($event.target.value)">
+          
+          <option *ngFor="let Zone of Zones" [value]="Zone.zoneid" >{{Zone.zonename}} </option>
+        
+        </select></td>   
       <td>District</td>
-      <td><input type="text" name="District" ngModel></td>
-      
+      <td ><select id="District" name="District" ngModel width="300px">
+        <option *ngFor="let District of Districts" [value]="District.districtid" >{{District.districtname}} </option>
+        </select></td>        
     </tr>
     <tr>
-        <td>Tower_type</td>
-        <td><input list="Towertype" name="Tower_type" ngModel></td>
-        <datalist id="Towertype">
+        <td>Tower type</td>        
+        <td ><select id="TowerType" name="TowerType" ngModel width="300px">
+          <option></option>
           <option>RTT</option>
           <option>GBT</option>
           <option>Pole</option>
           <option>IBS</option>
-        </datalist>
-        <td>Tower_height</td>
-        <td><input type="text" name="Tower_height" ngModel></td>
-        <td>Site_type</td>
-        <td><input list="Sitetype" name="Site_type" ngModel></td>
-        <datalist id="Sitetype">
-          <option>Indoor</option>
-          <option>Outdoor</option>
-        </datalist>
+        </select></td>
+        <td>Tower Height</td>
+        <td><input type="number" name="TowerHeight" ngModel placeholder="Enter AGL"></td>
+        <td>Site type</td>
+            <td ><select id="SiteType" name="SiteType" ngModel width="300px">
+            <option></option>
+            <option>Indoor</option>
+            <option>Outdoor</option>
+            </select></td>
         
       </tr>
       <tr>
-          <td>Other_OPCO_count</td>
-          <td><input type="text" name="Other_OPCO_count" ngModel></td>
-          <td>BTS_position_2G</td>
-          <td><input list="2Gposition" name="BTS_position_2G" ngModel></td>
-          <datalist id="2Gposition">
-            <option>Rack</option>
-            <option>Floor</option>
-            <option>Stack</option>
-          </datalist>
-          <td>BTS_make_2G</td>
+          <td>Other OPCO count</td>
+          <td><input type="number" name="OtherOPCOCount" ngModel></td>
+          <td>BBU Location</td>
+          <td ><select id="BBULocation " name="BBULocation" ngModel width="300px">
+              <option></option>
+                      <option>Indoor</option>
+                      <option>Outdoor</option>
+                      </select></td>
+              <td>BBU Position</td>
+          <td ><select id="BBUPosition" name="BBUPosition" ngModel width="300px">
+              <option></option>
+              <option>Rack</option>
+              <option>Floor</option>
+              </select></td>
+      </tr>
+      <tr>
+          <td>RRU Count 2G</td>
+          <td><input type="number" name="RRUCount2G" ngModel></td>
+                    
+        
+             <td>RRU Count 3G4G</td>
+            <td><input type="number" name="RRUCount3G4G" ngModel></td>
+            <td>TDD RRU Count</td>
+            <td><input type="number" name="TDDRRUCount" ngModel></td>
+      </tr>
+      <tr>
+            <td> MIMO RRU Count</td>
+            <td><input type="number" name="MIMORRUCount" ngModel></td>
 
-          <td><input list="2Gmake" name="BTS_make_2G" ngModel></td>
-          <datalist id="2Gmake">
-            <option>MR8</option>
-            <option>MR10</option>
-            <option>Siemens</option>
-          </datalist>
-          
-        </tr>
-        <tr>
-            <td> BTS_BBU_Model_2G</td>
-            <td><input list="2Gbbu" name="BTS_BBU_Model_2G" ngModel></td>
-            <datalist id="2Gbbu">
-              <option>FSMF</option>
-              <option>ESMB</option>
-              <option>NA</option>
-            </datalist>
-            <td>BTS_RRU_model_2G</td>
-            <td><input type="text" name="BTS_RRU_model_2G" ngModel></td>
-            <td> RRU_Count2G</td>
-            <td><input type="text" name="RRU_Count2G" ngModel></td>
-            
-          </tr>
+              <td>Total RRU Count</td>
+              <td><input type="number" name="TotalRRUCount" ngModel></td>
 
-          <tr>
-              <td>BTS_ODID_3G</td>
-              <td><input type="text" name="BTS_ODID_3G" ngModel></td>
-              <td> BTS_Position_3G</td>
-              <td><input type="text" name="BTS_Position_3G" ngModel></td>
-              <td>BTS_BBU_model_3G</td>
-              <td><input type="text" name="BTS_BBU_model_3G" ngModel></td>
+              <td> Antenna Count 2Port</td>
+              <td><input type="number" name="AntennaCount2Port" ngModel></td>
+      </tr>
+      <tr>
+              <td>Antenna Count 4Port</td>
+              <td><input type="number" name="AntennaCount4Port" ngModel></td>
               
+      
+          
+              <td> Antenna Count 6Port</td>
+              <td><input type="number" name="AntennaCount6Port" ngModel></td>
+              <td> Antenna Count 8Port</td>
+              <td><input type="number" name="AntennaCount8Port" ngModel></td>
+      </tr>
+      <tr>              
+              <td> Antenna Count 10Port</td>
+              <td><input type="number" name="AntennaCount10Port" ngModel></td>
+          
+          
+              <td>MW Make</td>
+              <td ><select id="MWMake" name="MWMake" ngModel width="300px">
+                  <option></option>
+                  <option>NEC</option>
+                  <option>Huawei</option>
+                  </select></td>
+              <td> MW Model</td>
+              <td ><select id="MWModel" name="MWModel" ngModel width="300px">
+                  <option></option>
+                  <option>iPaso 200</option>
+                  <option>iPaso 400</option>
+                  <option>iPaso 1000</option>
+                  <option>Huawei1</option>
+                  <option>Huawei2</option>
+                  <option>Huawei3</option>
+                  </select></td>
           </tr>
           <tr>
-              <td> BTS_RRU_model_3G</td>
-              <td><input type="text" name="BTS_RRU_model_3G" ngModel></td>
-              <td> RRU_Count_3G</td>
-              <td><input type="text" name="RRU_Count_3G" ngModel></td>
+              <td> MW Location</td>
+              <td ><select id="MWLocation" name="MWLocation" ngModel width="300px">
+                  <option></option>
+                        <option>Indoor</option>
+                        <option>Outdoor</option>
+                        </select></td>
+              <td> MW Position</td>
+              <td ><select id="MWPosition" name="MWPosition" ngModel width="300px">
+                  <option></option>
+                  <option>Rack</option>
+                  <option>Floor</option>
+                  </select></td>
+          
+              <td> MW Count</td>
+              <td><input type="number" name="MWCount" ngModel></td>
           </tr>
-                      
-    </table>
-    <button class="btn btn-primary" >Create</button>    
-  </form>
-       
-</div>
-       
-    
-  
-  
+          <tr>
+              <td> ILL Dependnecy</td>
+              <td ><select id="ILLDependnecy" name="ILLDependnecy" ngModel width="300px">
+                  <option></option>
+                  <option>Yes</option>
+                  <option>No</option>
+                  </select></td>
+              <td> Antenna Count 0.3</td>
+              <td><input type="number" name="AntennaCountPoint3" ngModel></td>
+          
+          
+              <td> Antenna Directions 0.3 </td>
+              <td><input type="text" name="AntennaDirectionsPoint3" ngModel></td>
+          </tr>
+          <tr>
+              <td> Antenna Count 0.6</td>
+              <td><input type="number" name="AntennaCountPoint6" ngModel></td>
+              <td> Antenna Directions 0.6</td>
+              <td><input type="text" name="AntennaDirectionsPoint6" ngModel></td>
+          
+              <td> Antenna Count 0.9  </td>
+              <td><input type="number" name="AntennaCountPoint9" ngModel></td>
+          </tr>
+          <tr>
+              <td> Antenna Directions 0.9</td>
+              <td><input type="text" name="AntennaDirectionsPoint9" ngModel></td>
+              <td> Antenna Count 1.2</td>
+              <td><input type="number" name="AntennaCount1Point2" ngModel></td>
+          
+              <td> Antenna Directions 1.2  </td>
+              <td><input type="text" name="AntennaDirections1Point2" ngModel></td>
+          </tr>
+          <tr>
+              <td> Antenna Count 1.8</td>
+              <td><input type="number" name="AntennaCount1Point8" ngModel></td>
+              <td> Antenna Directions 1.8</td>
+              <td><input type="text" name="AntennaDirections1Point8" ngModel></td>
+              <td> MUX Make  </td>
+              <td ><select id="MUXMake" name="MUXMake" ngModel width="300px">
+                  <option></option>
+                  <option>Huawei</option>
+                  <option>Fibom</option>
+                  <option>Thejas</option>
+                  </select></td>
+          </tr>
+          <tr>
+              <td> MUX Model</td>
+              <td ><select id="MUXModel" name="MUXModel" ngModel width="300px">
+                <option></option>
+                            <option>Optix 3500</option>
+                            <option>Optix 1500</option>
+                            <option>Optix 7500</option>
+                            <option>Fib 1.1</option>
+                            <option>Thej 2</option>
+                            </select></td>
+              <td> MUX Location</td>
+              <td ><select id="MUXLocation" name="MUXLocation" ngModel width="300px">
+                  <option></option>
+                      <option>Indoor</option>
+                      <option>Outdoor</option>
+                      </select></td>
+
+                  <td> MUX Position</td>
+                  <td ><select id="MUXPosition" name="MUXPosition" ngModel width="300px">
+                      <option></option>
+                      <option>Rack</option>
+                      <option>TCU</option>
+                      <option>MCU</option>
+                      </select></td>
+          </tr>
+          <tr>
+              <td>MUX Count</td>
+              <td><input type="number" name="MUXCount" ngModel></td>
+          </tr> 
+        </table>
+        <button class="btn btn-primary" >Add site</button>    
+      </form>
+    </div>      
+    </div>
+

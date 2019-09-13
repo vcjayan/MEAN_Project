@@ -1,0 +1,123 @@
+<nav class="navbar navbar-expand-lg ">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/main">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Contact us</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<mat-card class="tp-card">
+  <button (click)="exportAsXLSX()" class="btn btn-success">Export to Excel</button>
+<br>
+<div>          
+  <mat-form-field floatLabel="never">
+    <input matInput [(ngModel)]="searchKey" autocomplete="off" (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+    <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>                       
+</div>
+
+<table mat-table [dataSource]="VILKerala" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="RFID">
+    <th mat-header-cell *matHeaderCellDef>RFID</th>
+    <td mat-cell *matCellDef="let element ">{{element.RFID}}</td>        
+  </ng-container>
+    
+  <ng-container matColumnDef="InfraID">
+    <th mat-header-cell *matHeaderCellDef>Infra ID</th>
+    <td mat-cell *matCellDef="let element">{{element.InfraID}}</td>          
+  </ng-container>
+      
+  <ng-container matColumnDef="InfraOwner">
+    <th mat-header-cell *matHeaderCellDef>Infra owner</th>
+    <td mat-cell *matCellDef="let element">{{element.InfraOwner}}</td>            
+  </ng-container>
+      
+  <ng-container matColumnDef="SiteName">
+    <th mat-header-cell *matHeaderCellDef>Site name</th>
+    <td mat-cell *matCellDef="let element">{{element.SiteName}}</td>            
+  </ng-container>
+    
+  <ng-container matColumnDef="Zone">
+    <th mat-header-cell *matHeaderCellDef>Zone</th>
+    <td mat-cell *matCellDef="let element">{{element.Zone}}</td>            
+  </ng-container>
+
+  <ng-container matColumnDef="District">
+    <th mat-header-cell *matHeaderCellDef>District</th>
+    <td mat-cell *matCellDef="let element">{{element.District}}</td>            
+  </ng-container>
+    
+  <ng-container matColumnDef="OfcFloorAreaID">
+    <th mat-header-cell *matHeaderCellDef>OFC Floor Area Indoor</th>
+    <td mat-cell *matCellDef="let element">{{element.MUXLocation}}</td>            
+  </ng-container>
+
+  <ng-container matColumnDef="OfcFloorAreaOD">
+    <th mat-header-cell *matHeaderCellDef>OFC Floor Area Outdoor</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="BbuFLoorAreaID">
+    <th mat-header-cell *matHeaderCellDef>BBU Floor Area Indoor</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="BbuFLoorAreaOD">
+    <th mat-header-cell *matHeaderCellDef>BBU Floor Area Outdoor</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="Ip55ODFloorArea">
+    <th mat-header-cell *matHeaderCellDef>IP55 Floor Area</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="McuODFloorArea">
+    <th mat-header-cell *matHeaderCellDef>MCU Floor Area</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="TcuODFloorArea">
+    <th mat-header-cell *matHeaderCellDef>TCU Floor Area</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="TotalIDFLoorArea">
+    <th mat-header-cell *matHeaderCellDef>Total Indoor Floor Area</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="TotalODFloorArea">
+    <th mat-header-cell *matHeaderCellDef>Total Outdoor Floor Area</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="RackSapce">
+    <th mat-header-cell *matHeaderCellDef>Rack Space</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="UspaceCharge">
+    <th mat-header-cell *matHeaderCellDef>U Space Charge</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="Floor&RackSpaceCharge">
+    <th mat-header-cell *matHeaderCellDef>Floor&Rack Space Charge</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns  " ></tr>
+        <tr mat-row *matRowDef="let myRowData columns: displayedColumns" ></tr>   
+
+    </table>
