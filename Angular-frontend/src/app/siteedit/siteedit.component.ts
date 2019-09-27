@@ -107,6 +107,28 @@ onUpdate(form:NgForm) {
 
 }
 
+changes(t){
+  switch(t.value){
+    case '' : 
+    this.datas=[''];
+    break;
+    case 'Calicut' : 
+    this.datas=['','Kazargod','Kannur','Wayanad','Calicut'];
+    break;
+    case 'Malappuram' : 
+    this.datas=['','Malappuram'];
+    break;
+    case 'Thrissur' : 
+    this.datas=['','Thrissur','Palakkad'];
+    break;
+    case 'Ernakulam' : 
+    this.datas=['','Ernakulam','Alappuzha','Kottayam','Idukki'];
+    break;
+    case 'Trivandrum' : 
+    this.datas=['','Pathanamthitta','Kollam','Trivandrum'];
+    break;
+    }}
+
 }
 
 

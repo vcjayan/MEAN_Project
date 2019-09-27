@@ -19,8 +19,8 @@ select {
     background-color: lightgrey
 }
 input {
-    background-color: lightgrey
-
+    background-color: lightgrey;
+    width: 182px;
     
 }
 
