@@ -8,6 +8,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { ErrorHandler } from '@angular/core';
 import * as moment from 'moment'
+import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 
 
 
@@ -18,33 +19,17 @@ import * as moment from 'moment'
   styleUrls: ['./sitecreate.component.css']
 })
 export class SitecreateComponent implements OnInit {
-
+  lists:any=''
+  datas:any=''
+  items:any='';
   timer;
   time = moment().format('DD MMMM YYYY, h:mm:ss a')
 
   Zones : {}
   Districts : {}
+  TotalRRUCount: Number
 
-    RFID="";
-    Infra_ID="";
-    Infra_owner="";
-    Site_name="";
-    Zone="";
-    District="";
-    Tower_type="";
-    Tower_height="";
-    Site_type="";
-    Other_OPCO_count="";
-    BTS_position_2G="";
-    BTS_make_2G="";
-    BTS_BBU_Model_2G="";
-    BTS_RRU_model_2G="";
-    RRU_Count2G="";
-    BTS_ODID_3G="";
-    BTS_Position_3G="";
-    BTS_BBU_model_3G="";
-    BTS_RRU_model_3G="";
-    RRU_Count_3G="";
+   
   
 
   constructor(private apiService:ApiService) { }
@@ -78,7 +63,7 @@ export class SitecreateComponent implements OnInit {
       RRUCount3G4G:form.value.RRUCount3G4G,
       TDDRRUCount:form.value.TDDRRUCount,
       MIMORRUCount:form.value.MIMORRUCount,
-      TotalRRUCount:form.value.TotalRRUCount,
+      TotalRRUCount:form.value.RRUCount2G+form.value.RRUCount3G4G+form.value.TDDRRUCount+form.value.MIMORRUCount,
       AntennaCount2Port:form.value.AntennaCount2Port,
       AntennaCount4Port:form.value.AntennaCount4Port,
       AntennaCount6Port:form.value.AntennaCount6Port,
@@ -105,7 +90,7 @@ export class SitecreateComponent implements OnInit {
       MUXLocation:form.value.MUXLocation,
       MUXPosition:form.value.MUXPosition,
       MUXCount:form.value.MUXCount,
-      LastUpdate:form.value.LastUpdate
+      LastUpdate:moment().format('MM-DD-YY,h.mm a')
     }
 
     this.apiService.sendSite(site).subscribe((response)=>{
@@ -120,13 +105,56 @@ export class SitecreateComponent implements OnInit {
     console.log(JSON.stringify(site));
 
   }
-
-  onChangezone(Districts_zoneid){
-    this.apiService.getDistrict(Districts_zoneid).subscribe(
-      data => this.Districts = data
-    )
-
+    
+  changes(t){
+    switch(t.value){
+      case '' : 
+      this.datas=[''];
+      break;
+      case 'Calicut' : 
+      this.datas=['','Kazargod','Kannur','Wayanad','Calicut'];
+      break;
+      case 'Malappuram' : 
+      this.datas=['','Malappuram'];
+      break;
+      case 'Thrissur' : 
+      this.datas=['','Thrissur','Palakkad'];
+      break;
+      case 'Ernakulam' : 
+      this.datas=['','Ernakulam','Alappuzha','Kottayam','Idukki'];
+      break;
+      case 'Trivandrum' : 
+      this.datas=['','Pathanamthitta','Kollam','Trivandrum'];
+      break;
+      }}
+  change(t){
+    switch(t.value){
+      case '' : 
+      this.items=[''];
+      case 'NEC' : 
+      this.items=['','iPaso 200','iPaso 400','iPaso 1000','VR4'];
+      break;
+      case 'Huawei' : 
+      this.items=['','RTN 1.0','RTN 2.0'];
+      break;
+  }}
+  change1(t){
+    switch(t.value){
+      case '' : 
+      this.lists=[''];
+      case 'NA' : 
+      this.lists=['NA'];
+      case 'Huawei' : 
+      this.lists=['','Optix 3500','Optix 7500'];
+      break;
+      case 'Fibcom' : 
+      this.lists=['','Fib 1','Fib 2'];
+      break;
+      case 'Thejas' : 
+      this.lists=['','Thej 1.0','Thej 1.2'];
+      break;
+      }
+  
   }
 
-  
 }

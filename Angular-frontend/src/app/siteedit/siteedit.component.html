@@ -1,5 +1,22 @@
-
+<div>
+  <nav class="navbar navbar-expand-lg ">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/main">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Contact us</a>
+          </li>
+        </ul>
+      </div>
+      <h6>{{ time }}</h6>
+    </nav>      
   <h1 style="text-align: center">Edit site details</h1>
+  <br>
   <div> 
   <form class="form-group" (ngSubmit)="onUpdate(f)" #f="ngForm">
       <table class="table">
@@ -21,20 +38,30 @@
               <td>Site name</td>
               <td><input type="text" name="SiteName" [(ngModel)]=details.SiteName></td>
               <td>Zone</td>
-              <td ><select id="Zone" name="Zone" [(ngModel)]=details.Zone>
+              <td ><select  id="Zone" name="Zone" [(ngModel)]=details.Zone>
                   <option></option>
-                  <option>Kannur</option>
                   <option>Calicut</option>
                   <option>Malappuram</option>
-                  <option>Thrissur</option>
+                  <option>Ernakulam</option>
+                  <option>Trivandrum</option>
                 </select></td>   
               <td>District</td>
               <td ><select id="District" name="District" [(ngModel)]=details.District>
                   <option></option>
+                  <option>Kazargod</option>
                   <option>Kannur</option>
                   <option>Calicut</option>
+                  <option>Wayanad</option>
                   <option>Malappuram</option>
                   <option>Thrissur</option>
+                  <option>Palakkad</option>                  
+                  <option>Ernakulam</option>
+                  <option>Alappuzha</option>
+                  <option>Kottayam</option>
+                  <option>Idukki</option>
+                  <option>Pathanamthitta</option>
+                  <option>Kollam</option>
+                  <option>Trivandrum</option>
                 </select></td>        
             </tr>
             <tr>
@@ -82,8 +109,7 @@
               <tr>    
                   <td> MIMO RRU Count</td>
                   <td><input type="number" name="MIMORRUCount" [(ngModel)]=details.MIMORRUCount></td>        
-                  <td>Total RRU Count</td>
-                  <td><input type="number" name="TotalRRUCount" [(ngModel)]=details.TotalRRUCount></td>
+                  
                   <td> Antenna Count 2Port</td>
                   <td><input type="number" name="AntennaCount2Port" [(ngModel)]=details.AntennaCount2Port></td>
               </tr>
@@ -110,15 +136,15 @@
                     <option>iPaso 200</option>
                     <option>iPaso 400</option>
                     <option>iPaso 1000</option>
-                    <option>Huawei1</option>
-                    <option>Huawei2</option>
-                    <option>Huawei3</option>
+                    <option>VR4</option>
+                    <option>RTN 1.0</option>
+                    <option>RTN 2.0</option>
                     </select></td>       
                                
                   </tr>
                   <tr>
                     <td>MW Location</td>
-                    <td ><select id="BBULocation" name="MWLocation" [(ngModel)]=details.MWLocation>
+                    <td ><select id="MWLocation" name="MWLocation" [(ngModel)]=details.MWLocation>
                         <option></option>
                         <option>Indoor</option>
                         <option>Outdoor</option>
@@ -171,8 +197,9 @@
                         <td> MUX Make  </td>
                         <td ><select id="MUXMake" name="MUXMake" [(ngModel)]=details.MUXMake>
                             <option></option>
+                            <option>NA</option>
                             <option>Huawei</option>
-                            <option>Fibom</option>
+                            <option>Fibcom</option>
                             <option>Thejas</option>
                             </select></td>
                   </tr>
@@ -181,21 +208,25 @@
                        <td> MUX Model  </td>
                        <td ><select id="MUXModel" name="MUXModel" [(ngModel)]=details.MUXModel>
                             <option></option>
+                            <option>NA</option>
                             <option>Optix 3500</option>
-                            <option>Optix 1500</option>
                             <option>Optix 7500</option>
-                            <option>Fib 1.1</option>
-                            <option>Thej 2</option>
+                            <option>Fib 1</option>
+                            <option>Fib 2</option>
+                            <option>Thej 1.0</option>
+                            <option>Thej 1.2</option>
                             </select></td>
                             <td> MUX Location</td>
                   <td ><select id="MUXLocation" name="MUXLocation" [(ngModel)]=details.MUXLocation>
                       <option></option>
+                      <option>NA</option>
                       <option>Indoor</option>
                       <option>Outdoor</option>
                       </select></td>
                       <td> MUX Position</td>
                       <td ><select id="MUXPosition" name="MUXPosition" [(ngModel)]=details.MUXPosition>
                           <option></option>
+                          <option>NA</option>
                           <option>Rack</option>
                           <option>TCU</option>
                           <option>MCU</option>

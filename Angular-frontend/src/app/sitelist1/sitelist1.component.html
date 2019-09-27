@@ -14,11 +14,10 @@
     </div>
     <h6>{{ time }}</h6>
   </nav>
-
+  <h1 style="text-align: center">View and Edit database</h1>
 <div>
 <mat-card class="tp-card">
   <button (click)="exportAsXLSX()" class="btn btn-success">Export to Excel</button>
-  
 
 <br>
 
@@ -115,7 +114,7 @@
         
       <ng-container matColumnDef="TotalRRUCount">
         <th mat-header-cell *matHeaderCellDef>Total RRU Count</th>
-        <td mat-cell *matCellDef="let element">{{element.RRUCount2G+element.RRUCount3G4G+element.TDDRRUCount+element.MIMORRUCount}}</td>            
+        <td mat-cell *matCellDef="let element">{{element.TotalRRUCount}}</td>            
       </ng-container>
         
       <ng-container matColumnDef="AntennaCount2Port">

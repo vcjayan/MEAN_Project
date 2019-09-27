@@ -11,9 +11,10 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class SiteloadingComponent implements OnInit {
 
-  displayedColumns =['RFID','InfraID','InfraOwner','SiteName','Zone','District','OfcFloorAreaID','OfcFloorAreaOD',
+  displayedColumns =['RFID','InfraID','InfraOwner','SiteName','Zone','District','Tenancy','FloorSpaceOFC','OfcFloorAreaID','OfcFloorAreaOD',
                     'BbuFLoorAreaID','BbuFLoorAreaOD','Ip55ODFloorArea','McuODFloorArea','TcuODFloorArea','TotalIDFLoorArea',
-                    'TotalODFloorArea','RackSapce','UspaceCharge','Floor&RackSpaceCharge'
+                    'TotalODFloorArea','RackSapce','UspaceCharge','Floor&RackSpaceCharge','LoadingCharges','ExpectedDCEM','BilledDCEM',
+                    'DCEM difference','EBCost','DiseslCost','TotalEnergyCharges'
 ]
 
   VILKerala: any;

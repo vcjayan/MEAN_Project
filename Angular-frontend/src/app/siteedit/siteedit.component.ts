@@ -12,6 +12,9 @@ import * as moment from 'moment'
   styleUrls: ['./siteedit.component.css']
 })
 export class SiteeditComponent implements OnInit {
+  lists:any=''
+  datas:any=''
+  items:any='';
   timer;
   time = moment().format('DD MMMM YYYY, h:mm:ss a')
   id:number;
@@ -60,7 +63,7 @@ onUpdate(form:NgForm) {
     RRUCount3G4G:form.value.RRUCount3G4G,
     TDDRRUCount:form.value.TDDRRUCount,
     MIMORRUCount:form.value.MIMORRUCount,
-    TotalRRUCount:form.value.TotalRRUCount,
+    TotalRRUCount:form.value.RRUCount2G+form.value.RRUCount3G4G+form.value.TDDRRUCount+form.value.MIMORRUCount,
     AntennaCount2Port:form.value.AntennaCount2Port,
     AntennaCount4Port:form.value.AntennaCount4Port,
     AntennaCount6Port:form.value.AntennaCount6Port,
@@ -105,3 +108,5 @@ onUpdate(form:NgForm) {
 }
 
 }
+
+

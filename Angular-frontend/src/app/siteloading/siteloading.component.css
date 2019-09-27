@@ -17,5 +17,16 @@ table {
 
  .mat-column-right {
    text-align: initial;
-
  }
+ 
+   h1{
+    color: darkcyan;
+    text-align: center;
+    font-size: 3em;
+    font-family: fantasy;
+      
+     }
+
+     .mat-header-cell {
+      color: brown
+    }

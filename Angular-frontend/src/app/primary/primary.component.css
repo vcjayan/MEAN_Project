@@ -1,41 +1,46 @@
-
-  body {
-    background-color: orange
-  }
-  
+ 
   .container{
       display: flex;
       justify-content: center;
-      align-content: center;  
+      align-content: center;      
        }
   .container_create{
-      display: flex;
-      
+      display: flex; 
+          
       padding: 1px;    
       flex-direction: column;
-      margin-top: 100px;
-      
+      margin-top: 100px; 
+      height: 5px;     
         }  
   .container_view{
-    display: flex;
-    
+    display: flex;    
     padding: 1px;
     flex-direction: column;
     margin-top: 100px;
+    height: 5px;
   }
-  .container_upload{
-    display: flex;
+  .container_loading{
+    display: flex;    
     padding: 1px;
     flex-direction: column;
     margin-top: 100px;
+    height: 5px;
+  }
+  .container_energy{
+    display: flex;    
+    padding: 1px;
+    flex-direction: column;
+    margin-top: 100px;
+    height: 5px;
   }
   .container_heading{
       display: flex;
       flex-direction: column
+
   }
 
 h1{
-  color: burlywood;
+  color:lightseagreen;
   text-align: center;
   font-size: 4em;
   font-family: fantasy;
@@ -46,3 +51,5 @@ h6{
   color: green;
   text-align: center
 }
+
+

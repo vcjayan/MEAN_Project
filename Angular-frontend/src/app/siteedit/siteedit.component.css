@@ -4,8 +4,14 @@ select {
 }
 
 table td {
-    
     padding: 4px 4px;
+    
+}
+input {
+    background-color: lightgrey
+}
+select{
+    background-color: lightgrey
 }
 h6{
     color: green;

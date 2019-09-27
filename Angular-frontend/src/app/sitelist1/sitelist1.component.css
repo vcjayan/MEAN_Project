@@ -28,9 +28,13 @@ table {
   font-family: Arial, Helvetica, sans-serif
 }
 
-.mat-header-cell {
-  color: brown
-}
+h1{
+  color: darkcyan;
+  text-align: center;
+  font-size: 3em;
+  font-family: fantasy;
+    
+  }
 
 
 

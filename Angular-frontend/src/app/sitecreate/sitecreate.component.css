@@ -1,7 +1,8 @@
 table td {
     
     padding: 4px 4px;
-   
+    border-radius: 10px
+  
 }
 h1{
     color: darkcyan;
@@ -14,8 +15,16 @@ h1{
 
 select {
     padding: 4px 4px;
-    width: 181px
+    width: 181px;
+    background-color: lightgrey
 }
+input {
+    background-color: lightgrey
+
+    
+}
+
+    
 h6{
     color: green;
     text-align: end;

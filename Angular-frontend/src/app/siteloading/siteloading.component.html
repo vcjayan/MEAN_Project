@@ -13,6 +13,7 @@
     </ul>
   </div>
 </nav>
+<h1 style="text-align: center">Loading and Energy charges</h1>
 <mat-card class="tp-card">
   <button (click)="exportAsXLSX()" class="btn btn-success">Export to Excel</button>
 <br>
@@ -56,10 +57,20 @@
     <th mat-header-cell *matHeaderCellDef>District</th>
     <td mat-cell *matCellDef="let element">{{element.District}}</td>            
   </ng-container>
+
+  <ng-container matColumnDef="Tenancy">
+    <th mat-header-cell *matHeaderCellDef>Tenancy Count</th>
+    <td mat-cell *matCellDef="let element">{{element.OtherOPCOCount}}</td>            
+  </ng-container>
+
+  <ng-container matColumnDef="FloorSpaceOFC">
+    <th mat-header-cell *matHeaderCellDef>OFC Floor space 0.18sqm/rack</th>
+    <td mat-cell *matCellDef="let element">{{(element.MUXLocation.length)}}</td>          
+  </ng-container>
     
   <ng-container matColumnDef="OfcFloorAreaID">
     <th mat-header-cell *matHeaderCellDef>OFC Floor Area Indoor</th>
-    <td mat-cell *matCellDef="let element">{{element.MUXLocation}}</td>            
+    <td mat-cell *matCellDef="let element"></td>    
   </ng-container>
 
   <ng-container matColumnDef="OfcFloorAreaOD">
@@ -112,8 +123,43 @@
     <td mat-cell *matCellDef="let element"></td>            
   </ng-container>
 
+  <ng-container matColumnDef="LoadingCharges">
+    <th mat-header-cell *matHeaderCellDef>Total Loading Charges</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
   <ng-container matColumnDef="Floor&RackSpaceCharge">
     <th mat-header-cell *matHeaderCellDef>Floor&Rack Space Charge</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="ExpectedDCEM">
+    <th mat-header-cell *matHeaderCellDef>Expected DECM</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="BilledDCEM">
+    <th mat-header-cell *matHeaderCellDef>Billed DCEM</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="DCEM difference">
+    <th mat-header-cell *matHeaderCellDef>DECM Variation</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="EBCost">
+    <th mat-header-cell *matHeaderCellDef>EB Cost</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="DiseslCost">
+    <th mat-header-cell *matHeaderCellDef>Diesel Cost</th>
+    <td mat-cell *matCellDef="let element"></td>            
+  </ng-container>
+
+  <ng-container matColumnDef="TotalEnergyCharges">
+    <th mat-header-cell *matHeaderCellDef>Total Energy Charges</th>
     <td mat-cell *matCellDef="let element"></td>            
   </ng-container>
 
