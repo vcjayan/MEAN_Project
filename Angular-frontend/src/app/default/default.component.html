@@ -14,7 +14,7 @@
         </div>
           <br>
           <div [class.has-error]="emailControl.invalid && emailControl.touched">
-          <input class="form-control" type="email" placeholder="Enter email" name="email" required [(ngModel)]="email"
+          <input class="form-control" type="email" placeholder="Email " name="email" required [(ngModel)]="email"
           #emailControl="ngModel">
           <span class="help-block" *ngIf="emailControl.invalid && emailControl.touched">
             Email is required
@@ -28,40 +28,44 @@
           <br>
           <p class="message">Not registered?<a href="#" (click)="displaytoggle()"class="text">Register</a></p> 
       </form>
+      
    </div>
-
 
    <div class="container_register" id="register" style="display: none">
     <img  class="image" src="assets/VIL.jpg"> 
     <form (ngSubmit)="onRegister(userForm)" #userForm="ngForm" >
 
         <h1 class="prompt">Register</h1>
-        <div [class.has-error]="usernameControl.invalid && usernameControl.touched">
+        <div [class.has-error]="usernameControl.invalid && usernameControl.touched"  >
         <input class="form-control" type="text" placeholder="Enter username" name="username" required [(ngModel)]="username"
         #usernameControl="ngModel">
-        <span class="help-block" *ngIf="usernameControl.invalid && usernameControl.touched">
+        <span class="help-block" *ngIf="usernameControl.invalid && usernameControl.touched" style="color: red">
             User name is required
         </span>
     </div>
         <br>
         <div [class.has-error]="emailControl.invalid && emailControl.touched">
-        <input class="form-control" type="email" placeholder="Enter email" name="email" pattern="^[A-Za-z0-9_.+-]+@[vodafoneidea]+\.[com]+$" required [(ngModel)]="email"
-        #emailControl="ngModel">
-        <span class="help-block" *ngIf="emailControl.errors?.required && emailControl.touched">
+        <input class="form-control" type="email" placeholder="Email (@vodafoneidea.com)" name="email" pattern="^[A-Za-z0-9_.+-]+@[vodafoneidea]+\.[com]+$" required [(ngModel)]="email"
+        #emailControl="ngModel" title="Email with @vodafoneidea.com extension">
+        <span class="help-block" *ngIf="emailControl.errors?.required && emailControl.touched" style="color: red">
             Email is required
         </span>
-        <span class="help-block" *ngIf="emailControl.errors?.pattern && emailControl.touched">
+        <span class="help-block" *ngIf="emailControl.errors?.pattern && emailControl.touched" style="color: red">
             Email is invalid
         </span>
     </div>
-        <br>
-        
+        <div [class.has-error]="passwordControl.invalid && passwordControl.touched"></div>
+        <br>        
         <input class="form-control" type="password" placeholder="Password" name="password" 
-        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be 8 or more characters long. Must contain at least one number, one uppercase and lowercase letter" required [(ngModel)]="password" > 
-        
-          
-        <br>
-                
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be 8 or more characters long. Must contain at least one number, one uppercase and lowercase letter" 
+        required [(ngModel)]="password" #passwordControl="ngModel" >
+        <span class="help-block" *ngIf="passwordControl.errors?.required && passwordControl.touched" style="color: red">
+            Password is required
+        </span>
+        <span class="help-block" *ngIf="passwordControl.errors?.pattern && passwordControl.touched" style="color: red">
+            Password is invalid
+        </span>
+        <br>                
         <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid" >Create Account</button> 
         <p class="message">Already registered?<a href="#" (click)="displaytoggle()"class="text">Login</a></p> 
     </form>

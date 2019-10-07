@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router'
 import { NgForm } from '@angular/forms';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -10,6 +11,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./default.component.css']
 })
 export class DefaultComponent implements OnInit {
+
+  statusText:string;  
+  serverErrorMessage:string;
+  public error: any; 
   username='';
   password='';
   email=''
@@ -27,7 +32,7 @@ export class DefaultComponent implements OnInit {
    }
    else{
        login.style.display='none'
-   }
+   }   
    
    var register=document.getElementById("register");
    if (register.style.display==='none'){
@@ -39,21 +44,22 @@ export class DefaultComponent implements OnInit {
    form.reset();
 }
 
-  onLogin(form:NgForm){
+onLogin(form:NgForm){
 
-    const user = {
-      username: form.value.username,
-      email: form.value.email,
-      password: form.value.password
-    }
-    
-    this.apiService.loginUser(user).subscribe((response)=>{
-      console.log(response);
-                 
-      form.reset();
-      this.router.navigate(['/main']);
-    })
+  const user = {
+    username: form.value.username,
+    email: form.value.email,
+    password: form.value.password
   }
+  
+  this.apiService.loginUser(user).subscribe((response=>{        
+    console.log("Logged in")
+                 
+    form.reset();
+    this.router.navigate(['/main']);
+  }))
+}
+  
 
   onRegister(form:NgForm){
     

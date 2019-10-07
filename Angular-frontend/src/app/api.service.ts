@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import * as moment from 'moment'
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError } from 'rxjs/operators'
+import { throwError } from 'rxjs';
+import { Userdata } from './usermodel'
+
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +54,13 @@ export class ApiService {
   }
 
   loginUser(user){
-    return this.httpClient.post('http://localhost:3000/login', user)
-  }
+    return this.httpClient.post('http://localhost:3000/login', user).pipe(catchError(this.handleError))
+      }
+
+      handleError(error: HttpErrorResponse){
+        console.log("Invalid credentials");
+        window.alert('Invalid credentials');
+        return throwError(error);       
+        }
 }
 

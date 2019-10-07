@@ -83,7 +83,7 @@
                   </select></td>                
               </tr>
               <tr>
-                  <td>Other OPCO count</td>
+                  <td>Tenancy count</td>
                   <td><input type="number" name="OtherOPCOCount" [(ngModel)]=details.OtherOPCOCount></td>
                   <td>BBU Location</td>
                   <td ><select id="BBULocation" name="BBULocation" [(ngModel)]=details.BBULocation>
@@ -112,18 +112,18 @@
                   
                   <td> Antenna Count 2Port</td>
                   <td><input type="number" name="AntennaCount2Port" [(ngModel)]=details.AntennaCount2Port></td>
-              </tr>
-              <tr>
                   <td>Antenna Count 4Port</td>
                   <td><input type="number" name="AntennaCount4Port" [(ngModel)]=details.AntennaCount4Port></td>
+              </tr>
+              <tr>                  
                   <td> Antenna Count 6Port</td>
                   <td><input type="number" name="AntennaCount6Port" [(ngModel)]=details.AntennaCount6Port></td>
                   <td> Antenna Count 8Port</td>
                   <td><input type="number" name="AntennaCount8Port" [(ngModel)]=details.AntennaCount8Port></td>
-              </tr>        
-              <tr>
                   <td> Antenna Count 10Port</td>
                   <td><input type="number" name="AntennaCount10Port" [(ngModel)]=details.AntennaCount10Port></td>
+              </tr>        
+              <tr>                  
                   <td>MW Make</td>
                   <td ><select id="MWMake" name="MWMake" [(ngModel)]=details.MWMake>
                     <option></option>
@@ -139,16 +139,16 @@
                     <option>VR4</option>
                     <option>RTN 1.0</option>
                     <option>RTN 2.0</option>
-                    </select></td>       
+                    </select></td>   
+                  <td>MW Location</td>
+                  <td ><select id="MWLocation" name="MWLocation" [(ngModel)]=details.MWLocation>
+                    <option></option>
+                    <option>Indoor</option>
+                    <option>Outdoor</option>
+                    </select></td>    
                                
                   </tr>
-                  <tr>
-                    <td>MW Location</td>
-                    <td ><select id="MWLocation" name="MWLocation" [(ngModel)]=details.MWLocation>
-                        <option></option>
-                        <option>Indoor</option>
-                        <option>Outdoor</option>
-                        </select></td>
+                  <tr>                    
                     <td> MW Position</td>
                     <td ><select id="MWPosition" name="MWPosition" [(ngModel)]=details.MWPosition>
                         <option></option>
@@ -157,41 +157,39 @@
                         </select></td>
                     <td> MW Count</td>
                     <td><input type="number" name="MWCount" [(ngModel)]=details.MWCount></td>
-                  </tr>
-                  <tr>
-                      <td> ILL Dependnecy</td>
+                    <td> ILL Dependnecy</td>
                       <td ><select id="ILLDependnecy" name="ILLDependnecy" [(ngModel)]=details.ILLDependnecy>
                           <option></option>
                           <option>Yes</option>
                           <option>No</option>
                           </select></td> 
+                  </tr>
+                  <tr>                      
                           <td> Antenna Count 0.3</td>
                     <td><input type="text" name="AntennaCountPoint3" [(ngModel)]=details.AntennaCountPoint3></td>  
                     <td> Antenna Directions 0.3 </td>
                     <td><input type="text" name="AntennaDirectionsPoint3" [(ngModel)]=details.AntennaDirectionsPoint3></td>
-
-                  </tr>
-                  <tr>                        
                     <td> Antenna Count 0.6</td>
                        <td><input type="number" name="AntennaCountPoint6" [(ngModel)]=details.AntennaCountPoint6></td>
+                  </tr>
+                  <tr>                   
                         <td> Antenna Directions 0.6</td>
                         <td><input type="text" name="AntennaDirectionsPoint6" [(ngModel)]=details.AntennaDirectionsPoint6></td> 
                         <td> Antenna Count 0.9  </td>
                         <td><input type="number" name="AntennaCountPoint9" [(ngModel)]=details.AntennaCountPoint9></td>
-                  </tr>
-                  <tr>
-                        
                         <td> Antenna Directions 0.9</td>
                         <td><input type="text" name="AntennaDirectionsPoint9" [(ngModel)]=details.AntennaDirectionsPoint9></td>
+                  </tr>
+                  <tr>           
                         <td> Antenna Count 1.2</td>
                         <td><input type="number" name="AntennaCount1Point2" [(ngModel)]=details.AntennaCount1Point2></td> 
                         <td> Antenna Directions 1.2  </td>
                         <td><input type="text" name="AntennaDirections1Point2" [(ngModel)]=details.AntennaDirections1Point2></td>
-                  </tr>
-                  <tr>
-                        
                         <td> Antenna Count 1.8</td>
                         <td><input type="number" name="AntennaCount1Point8" [(ngModel)]=details.AntennaCount1Point8></td>
+                  </tr>
+                  <tr>                  
+                        
                         <td> Antenna Directions 1.8</td>
                         <td><input type="text" name="AntennaDirections1Point8" [(ngModel)]=details.AntennaDirections1Point8></td>
                         <td> MUX Make  </td>
@@ -202,10 +200,7 @@
                             <option>Fibcom</option>
                             <option>Thejas</option>
                             </select></td>
-                  </tr>
-                  <tr>
-                        
-                       <td> MUX Model  </td>
+                            <td> MUX Model  </td>
                        <td ><select id="MUXModel" name="MUXModel" [(ngModel)]=details.MUXModel>
                             <option></option>
                             <option>NA</option>
@@ -216,6 +211,9 @@
                             <option>Thej 1.0</option>
                             <option>Thej 1.2</option>
                             </select></td>
+                  </tr>
+                  <tr>                       
+                       
                             <td> MUX Location</td>
                   <td ><select id="MUXLocation" name="MUXLocation" [(ngModel)]=details.MUXLocation>
                       <option></option>
@@ -231,13 +229,11 @@
                           <option>TCU</option>
                           <option>MCU</option>
                           </select></td>
-                  </tr>
-                  <tr>
-                  
-                      <td>MUX Count</td>
+                          <td>MUX Count</td>
                       <td><input type="number" name="MUXCount" [(ngModel)]=details.MUXCount></td>
 
-                        </tr>               
+                  </tr>
+                           
                       
                   
                 </table> 

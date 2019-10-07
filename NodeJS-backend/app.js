@@ -9,6 +9,7 @@ var {Districts} = require('./models/districts')
 zoneid:String   
 const jwt = require ('jsonwebtoken')
 
+//connect to mongodb
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/VILKerala', {useNewUrlParser:true})
 const connection = mongoose.connection;
@@ -16,15 +17,17 @@ connection.once('open', ()=>{
     console.log("Succefully connected to mongodb database District")
 });
 
-
-
-
 var app=express();
 app.use(bodyParser.json());
 app.use(cors());
 
-//login
+//error handler
+app.use(function(err, req, res, next){
+    console.log(err)
+    res.status(401).send({error: err.message})
+})
 
+//register
 app.post('/register', (req, res)=>{
 
     var credentials = new Userdata ({
@@ -41,28 +44,29 @@ app.post('/register', (req, res)=>{
     })     
     });
 
-app.post('/login', (req, res)=>{
-
-    var user1 = req.body
-
-    Userdata.findOne({email:user1.email}, (error, user)=>{
-        if (error){
-            console.log(error)
-        }
-        else {
-            if (!user) {
-                res.status(401).send('Invalid email')
+//login
+app.post('/login', (req, res, next)=>{
+    
+        var user1 = req.body
+    
+        Userdata.findOne({email:user1.email}, (error, user)=>{
+            if (error){
+                console.log(error)               
             }
-        else {
-            if (user.password!==user1.password) {
-                res.status(401).send('Invalid password')
-            }
-        else {
-            res.status(200).send(user)
-        }}}})})
+            else {
+                if (!user) {
+                    res.status(401).send('Invalid email')
+                }
+            else {
+                if (user.password!==user1.password) {
+                    res.status(401).send('Invalid password')
+                }
+            else {
+                res.status(200).send(user)
+            }}}}).catch(next)
+        })
 
 //view
-
 app.get('/database', (req, res)=>{
         VILKerala.find().then((data)=>{
         if(!data){
@@ -79,6 +83,7 @@ app.get('/zone', (req, res)=>{
     res.send(data)
 })});
 
+//add new zone
 app.post('/createzone', (req, res)=>{
 
     var zonelist = new Zones ({
@@ -93,7 +98,7 @@ app.post('/createzone', (req, res)=>{
     (error)=>{
         res.status(400).send(error)
     })});
-
+//get district list
 app.get('/district', (req, res)=>{
     Districts.find().then((data)=>{
     if(!data){
@@ -102,6 +107,7 @@ app.get('/district', (req, res)=>{
     res.send(data)
 })});
 
+//get district and zoneid
 app.get('/district/:zoneid', (req, res)=>{
     Districts.findById().then((data)=>{
     if(!data){
@@ -110,8 +116,7 @@ app.get('/district/:zoneid', (req, res)=>{
     res.send(data)
 })});
 
-
-
+//create district
 app.post('/createdistrict', (req, res)=>{
 
     var districtlist = new Districts ({
