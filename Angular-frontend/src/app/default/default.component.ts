@@ -53,8 +53,7 @@ onLogin(form:NgForm){
   }
   
   this.apiService.loginUser(user).subscribe((response=>{        
-    console.log("Logged in")
-                 
+    console.log("Logged in")                 
     form.reset();
     this.router.navigate(['/main']);
   }))

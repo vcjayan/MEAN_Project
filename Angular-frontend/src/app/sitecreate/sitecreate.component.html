@@ -24,7 +24,9 @@
 <table class="table">
   <tr>
     <td>RFID</td>
-    <td><input type="text" name="RFID" ngModel required maxlength="8"></td>
+    
+    <td><input type="text" name="RFID" required maxlength="8" [(ngModel)]="RFID"></td>
+      
     <td>Infra ID</td>
     <td><input type="text" name="InfraID" ngModel maxlength="8"></td>
     <td>Infra owner</td>

@@ -36,10 +36,10 @@
     <form (ngSubmit)="onRegister(userForm)" #userForm="ngForm" >
 
         <h1 class="prompt">Register</h1>
-        <div [class.has-error]="usernameControl.invalid && usernameControl.touched"  >
+        <div [class.has-error]="usernameControl.invalid && usernameControl.touched">
         <input class="form-control" type="text" placeholder="Enter username" name="username" required [(ngModel)]="username"
         #usernameControl="ngModel">
-        <span class="help-block" *ngIf="usernameControl.invalid && usernameControl.touched" style="color: red">
+        <span class="text-danger" *ngIf="usernameControl.invalid && usernameControl.touched" >
             User name is required
         </span>
     </div>

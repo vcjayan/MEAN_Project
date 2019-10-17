@@ -14,7 +14,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/VILKerala', {useNewUrlParser:true})
 const connection = mongoose.connection;
 connection.once('open', ()=>{
-    console.log("Succefully connected to mongodb database District")
+    console.log("Succefully connected to mongodb database")
 });
 
 var app=express();
@@ -75,64 +75,6 @@ app.get('/database', (req, res)=>{
         res.send(data)
     })});
 
-app.get('/zone', (req, res)=>{
-    Zones.find().then((data)=>{
-    if(!data){
-        return res.status(400).send()
-    }
-    res.send(data)
-})});
-
-//add new zone
-app.post('/createzone', (req, res)=>{
-
-    var zonelist = new Zones ({
-                    zonename: req.body.zonename,
-                    zoneid: req.body.zoneid,
-                    })
-
-      zonelist.save().then((result)=>{
-        res.send(result) 
-        console.log('zone added')     
-    },
-    (error)=>{
-        res.status(400).send(error)
-    })});
-//get district list
-app.get('/district', (req, res)=>{
-    Districts.find().then((data)=>{
-    if(!data){
-        return res.status(400).send()
-    }
-    res.send(data)
-})});
-
-//get district and zoneid
-app.get('/district/:zoneid', (req, res)=>{
-    Districts.findById().then((data)=>{
-    if(!data){
-        return res.status(400).send()
-    }
-    res.send(data)
-})});
-
-//create district
-app.post('/createdistrict', (req, res)=>{
-
-    var districtlist = new Districts ({
-                    districtname: req.body.districtname,
-                    districtid: req.body.districtid,
-                    zoneid: req.body.zoneid
-                    })
-
-        districtlist.save().then((result)=>{
-        res.send(result) 
-        console.log('zone added')     
-    },
-    (error)=>{
-        res.status(400).send(error)
-    })});
-
 app.get('/users', (req, res)=>{
     Userdata.find().then((data)=>{
     if(!data){
@@ -154,8 +96,7 @@ app.get('/database/:id', (req, res)=>{
         res.send(data);}).catch((e)=>{
             res.status(400).send()
         })
-    })
-;
+    });
 
 app.delete('/database/delete/:id', (req, res)=>{
 
@@ -170,8 +111,7 @@ app.delete('/database/delete/:id', (req, res)=>{
 })
 
 app.put('/updatesite/:id', (req, res)=>{
-    var sites = {
-        
+    var sites = {        
             RFID:req.body.RFID,
             InfraID:req.body.InfraID,
             InfraOwner:req.body.InfraOwner,
@@ -215,9 +155,8 @@ app.put('/updatesite/:id', (req, res)=>{
             MUXLocation:req.body.MUXLocation,
             MUXPosition:req.body.MUXPosition,
             MUXCount:req.body.MUXCount,
-            LastUpdate:req.body.LastUpdate           
-
-    };
+            LastUpdate:req.body.LastUpdate};
+            
     VILKerala.findByIdAndUpdate(req.params.id, {$set:sites}, {new:true}, (err, data)=>{
         
         if(!err) {res.send(data);}

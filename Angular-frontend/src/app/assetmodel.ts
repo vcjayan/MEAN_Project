@@ -43,6 +43,4 @@ export interface VILKerala {
     MUXLocation:String,
     MUXPosition:String,
     MUXCount:Number,
-    LastUpdate:String
-
-}
+    LastUpdate:String}

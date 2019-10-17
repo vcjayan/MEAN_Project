@@ -34,7 +34,7 @@ export class ApiService {
   }
 
   sendSite(site){
-    return this.httpClient.post('http://localhost:3000/insertsite', site);
+    return this.httpClient.post('http://localhost:3000/insertsite', site).pipe(catchError(this.handleError))
   }
 
   deleteSite(id, site){
@@ -59,7 +59,7 @@ export class ApiService {
 
       handleError(error: HttpErrorResponse){
         console.log("Invalid credentials");
-        window.alert('Invalid credentials');
+        window.alert('Invalid or blank fields');
         return throwError(error);       
         }
 }
