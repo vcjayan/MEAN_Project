@@ -34,7 +34,7 @@
     "jszip": "^3.2.2",
     "moment": "^2.24.0",
     "pdfmake": "^0.1.58",
-    "xlsx": "^0.15.1",
+    "xlsx": "^0.17.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
